@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "CDSKit",
+        "repositoryURL": "https://github.com/TeamCatchMe/CDSKit",
+        "state": {
+          "branch": null,
+          "revision": "8d71a9da2a6248a050f40cfb37db790d00af8fbe",
+          "version": "0.0.1"
+        }
+      },
+      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
         "state": {

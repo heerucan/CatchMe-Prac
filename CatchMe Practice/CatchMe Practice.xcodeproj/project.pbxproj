@@ -26,6 +26,14 @@
 		5B084FFC268B17AC008F40B2 /* ReportStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B084FFB268B17AC008F40B2 /* ReportStackView.swift */; };
 		5B085001268B1F19008F40B2 /* ActivityTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B085000268B1F19008F40B2 /* ActivityTVC.swift */; };
 		5B085004268B2E0E008F40B2 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B085003268B2E0E008F40B2 /* CustomNavigationBar.swift */; };
+		5BAE4F732733DA1200E2F69A /* CharacterPostTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE4F722733DA1200E2F69A /* CharacterPostTVC.swift */; };
+		5BAE4F76273425E200E2F69A /* CDSKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5BAE4F75273425E200E2F69A /* CDSKit */; };
+		5BAE4F7C2734F20900E2F69A /* CharacterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE4F7B2734F20900E2F69A /* CharacterHeaderView.swift */; };
+		5BAE4F7E2734F70B00E2F69A /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE4F7D2734F70B00E2F69A /* NavigationBar.swift */; };
+		5BAE4F80273534ED00E2F69A /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE4F7F273534ED00E2F69A /* ProgressBar.swift */; };
+		5BAE4F82273542C300E2F69A /* CharacterProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE4F81273542C300E2F69A /* CharacterProfileTVC.swift */; };
+		5BAE4F852735487B00E2F69A /* UITableViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE4F842735487B00E2F69A /* UITableViewRegisterable.swift */; };
+		5BD8254626E3B7DC003EEC8D /* CharacterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8254526E3B7DC003EEC8D /* CharacterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +56,13 @@
 		5B084FFB268B17AC008F40B2 /* ReportStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStackView.swift; sourceTree = "<group>"; };
 		5B085000268B1F19008F40B2 /* ActivityTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTVC.swift; sourceTree = "<group>"; };
 		5B085003268B2E0E008F40B2 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		5BAE4F722733DA1200E2F69A /* CharacterPostTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPostTVC.swift; sourceTree = "<group>"; };
+		5BAE4F7B2734F20900E2F69A /* CharacterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterHeaderView.swift; sourceTree = "<group>"; };
+		5BAE4F7D2734F70B00E2F69A /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		5BAE4F7F273534ED00E2F69A /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		5BAE4F81273542C300E2F69A /* CharacterProfileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterProfileTVC.swift; sourceTree = "<group>"; };
+		5BAE4F842735487B00E2F69A /* UITableViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewRegisterable.swift; sourceTree = "<group>"; };
+		5BD8254526E3B7DC003EEC8D /* CharacterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +72,7 @@
 			files = (
 				5B084FC6268AE26A008F40B2 /* SnapKit in Frameworks */,
 				5B084FCA268AE287008F40B2 /* Then in Frameworks */,
+				5BAE4F76273425E200E2F69A /* CDSKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +98,7 @@
 		5B084FAD268ADF9A008F40B2 /* CatchMe Practice */ = {
 			isa = PBXGroup;
 			children = (
+				5BAE4F772734F1BD00E2F69A /* Release Version */,
 				5B084FCC268AE2C3008F40B2 /* Source */,
 				5B084FCD268AE2C9008F40B2 /* Resource */,
 				5B084FBC268ADF9C008F40B2 /* Info.plist */,
@@ -92,6 +109,7 @@
 		5B084FCC268AE2C3008F40B2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5BAE4F832735486800E2F69A /* Protocols */,
 				5B084FD1268AE2F0008F40B2 /* Extensions */,
 				5B084FD0268AE2E8008F40B2 /* Components */,
 				5B084FEF268AFBEF008F40B2 /* View */,
@@ -131,6 +149,7 @@
 		5B084FD0268AE2E8008F40B2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5BAE4F7B2734F20900E2F69A /* CharacterHeaderView.swift */,
 				5B084FFB268B17AC008F40B2 /* ReportStackView.swift */,
 				5B084FF8268B13AC008F40B2 /* ReportNumLabel.swift */,
 				5B084FEC268AF9A8008F40B2 /* ReportLabel.swift */,
@@ -176,6 +195,50 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5BAE4F772734F1BD00E2F69A /* Release Version */ = {
+			isa = PBXGroup;
+			children = (
+				5BAE4F7A2734F1DA00E2F69A /* View */,
+				5BAE4F792734F1D100E2F69A /* View Controller */,
+				5BAE4F782734F1CD00E2F69A /* Cell */,
+			);
+			path = "Release Version";
+			sourceTree = "<group>";
+		};
+		5BAE4F782734F1CD00E2F69A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5BAE4F81273542C300E2F69A /* CharacterProfileTVC.swift */,
+				5BAE4F722733DA1200E2F69A /* CharacterPostTVC.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		5BAE4F792734F1D100E2F69A /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5BD8254526E3B7DC003EEC8D /* CharacterVC.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		5BAE4F7A2734F1DA00E2F69A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BAE4F7D2734F70B00E2F69A /* NavigationBar.swift */,
+				5BAE4F7F273534ED00E2F69A /* ProgressBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5BAE4F832735486800E2F69A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5BAE4F842735487B00E2F69A /* UITableViewRegisterable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,6 +258,7 @@
 			packageProductDependencies = (
 				5B084FC5268AE26A008F40B2 /* SnapKit */,
 				5B084FC9268AE287008F40B2 /* Then */,
+				5BAE4F75273425E200E2F69A /* CDSKit */,
 			);
 			productName = "CatchMe Practice";
 			productReference = 5B084FAB268ADF9A008F40B2 /* CatchMe Practice.app */;
@@ -226,6 +290,7 @@
 			packageReferences = (
 				5B084FC4268AE26A008F40B2 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				5B084FC8268AE287008F40B2 /* XCRemoteSwiftPackageReference "Then" */,
+				5BAE4F74273425E200E2F69A /* XCRemoteSwiftPackageReference "CDSKit" */,
 			);
 			productRefGroup = 5B084FAC268ADF9A008F40B2 /* Products */;
 			projectDirPath = "";
@@ -255,7 +320,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B084FB3268ADF9A008F40B2 /* ViewController.swift in Sources */,
+				5BAE4F80273534ED00E2F69A /* ProgressBar.swift in Sources */,
 				5B084FD4268AE492008F40B2 /* UIColor + Extension.swift in Sources */,
+				5BAE4F82273542C300E2F69A /* CharacterProfileTVC.swift in Sources */,
 				5B084FF9268B13AC008F40B2 /* ReportNumLabel.swift in Sources */,
 				5B084FF5268B000B008F40B2 /* UIDevice + ScreenSize.swift in Sources */,
 				5B084FAF268ADF9A008F40B2 /* AppDelegate.swift in Sources */,
@@ -263,11 +330,16 @@
 				5B085004268B2E0E008F40B2 /* CustomNavigationBar.swift in Sources */,
 				5B085001268B1F19008F40B2 /* ActivityTVC.swift in Sources */,
 				5B084FD7268AE723008F40B2 /* UIView + Extension.swift in Sources */,
+				5BAE4F7E2734F70B00E2F69A /* NavigationBar.swift in Sources */,
 				5B084FF1268AFC03008F40B2 /* HeaderView.swift in Sources */,
+				5BAE4F732733DA1200E2F69A /* CharacterPostTVC.swift in Sources */,
 				5B084FEA268AF856008F40B2 /* LineView.swift in Sources */,
+				5BAE4F7C2734F20900E2F69A /* CharacterHeaderView.swift in Sources */,
 				5B084FFC268B17AC008F40B2 /* ReportStackView.swift in Sources */,
 				5B084FB1268ADF9A008F40B2 /* SceneDelegate.swift in Sources */,
+				5BD8254626E3B7DC003EEC8D /* CharacterVC.swift in Sources */,
 				5B084FDA268AEEEB008F40B2 /* TitleTVC.swift in Sources */,
+				5BAE4F852735487B00E2F69A /* UITableViewRegisterable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +559,14 @@
 				minimumVersion = 2.7.0;
 			};
 		};
+		5BAE4F74273425E200E2F69A /* XCRemoteSwiftPackageReference "CDSKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TeamCatchMe/CDSKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -499,6 +579,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5B084FC8268AE287008F40B2 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		5BAE4F75273425E200E2F69A /* CDSKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BAE4F74273425E200E2F69A /* XCRemoteSwiftPackageReference "CDSKit" */;
+			productName = CDSKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
