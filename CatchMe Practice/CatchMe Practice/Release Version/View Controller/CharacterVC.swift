@@ -11,7 +11,7 @@ import CDSKit
 import SnapKit
 import Then
 
-class CharacterVC: UIViewController {
+class CharacterVC: UIViewController, GuideButtonDelegate {
     
     // MARK: - Properties
     private let naviBar = NavigationBar()
@@ -25,6 +25,10 @@ class CharacterVC: UIViewController {
         if #available(iOS 15, *) {
             $0.sectionHeaderTopPadding = 0
         }
+    }
+    
+    private let guideImageView = UIImageView().then {
+        $0.image = UIImage(named: "imgCatchGuide")
     }
     
     // MARK: - Lifecycle
@@ -52,6 +56,10 @@ class CharacterVC: UIViewController {
             make.top.equalTo(naviBar.snp.bottom)
             make.leading.bottom.trailing.equalToSuperview()
         }
+    }
+    
+    internal func clickToOpenGuidePopup() {
+        print("캐치지수 팝업 보여주기")
     }
 }
 
@@ -112,6 +120,7 @@ extension CharacterVC: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterProfileTVC.className, for: indexPath)
                     as? CharacterProfileTVC else { return UITableViewCell() }
             cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterPostTVC.className, for: indexPath)

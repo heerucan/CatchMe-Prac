@@ -11,87 +11,95 @@ import CDSKit
 import SnapKit
 import Then
 
+protocol GuideButtonDelegate: AnyObject {
+    func clickToOpenGuidePopup()
+}
+
 class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     
     static let identifier = "CharacterProfileTVC"
     
     // MARK: - Properties
+    weak var delegate: GuideButtonDelegate?
+    
     let progressBar = ProgressBar()
     
-    let catchuView = UIView().then {
+    private let catchuView = UIView().then {
         $0.layer.cornerRadius = 87 / 2
         $0.backgroundColor = CDSColor.orangePrimaryBG
     }
     
-    let catchuImageView = UIImageView().then {
+    private let catchuImageView = UIImageView().then {
         $0.backgroundColor = .purple
         $0.layer.cornerRadius = 69 / 2
     }
     
-    let nameLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 14)
+    private let nameLabel = CDSLabel(style: .catchu3).then {
         $0.text = "커피커피름름커피커피커피커피름름커피커피"
         $0.numberOfLines = 2
         $0.lineBreakMode = .byWordWrapping
     }
     
-    let editButton = UIButton().then {
+    private lazy var editButton = UIButton().then {
         $0.setImage(CDSIcon.btnProfileEdit, for: .normal)
     }
     
-    let lineTopView = Separator()
+    private let lockStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 0
+        $0.alignment = .center
+    }
     
-    let levelStackView = UIStackView().then {
+
+    
+    private let lineTopView = Separator(type: .horizontal)
+    private let lineLeftView = Separator(type: .vertical)
+    private let lineBottomView = Separator(type: .horizontal)
+    private let lineRightView = Separator(type: .vertical)
+
+    private let levelStackView = UIStackView().then {
         $0.axis = .vertical
         $0.spacing = 3
         $0.alignment = .center
     }
     
-    let levelNumberLabel = UILabel().then {
+    private let levelNumLabel = CDSLabel(style: .body1).then {
         $0.text = "1"
     }
     
-    let levelLabel = UILabel().then {
-        $0.text = "레벨"
+    private let levelLabel = CDSLabel(style: .body6).then {
+        $0.text = "캐츄레벨"
     }
     
-    let separateLineLeftView = Separator()
-    
-    let activityStackView = UIStackView().then {
+    private let totalStackView = UIStackView().then {
         $0.axis = .vertical
         $0.spacing = 3
         $0.alignment = .center
     }
     
-    let activityNumberLabel = UILabel().then {
+    private let totalNumLabel = CDSLabel(style: .body1).then {
         $0.text = "23"
     }
     
-    let activityLabel = UILabel().then {
-        $0.text = "캐칭"
+    private let totalLabel = CDSLabel(style: .body6).then {
+        $0.text = "총 캐칭"
     }
     
-    let separateLineRightView = Separator()
-    
-    let catchNumberLabel = UILabel().then {
+    private let valueNumLabel = CDSLabel(style: .body1).then {
         $0.text = "50"
     }
 
-    let catchLabel = UILabel().then {
+    private let valueLabel = CDSLabel(style: .body6).then {
         $0.text = "캐치지수"
     }
     
-    let exclamationMarkImageView = UIImageView().then {
-        $0.image = CDSIcon.btnGuide
+    private lazy var guideButton = UIButton().then {
+        $0.setImage(CDSIcon.btnGuide, for: .normal)
+        $0.addTarget(self, action: #selector(touchupGuideButton(_:)), for: .touchUpInside)
     }
     
-    let catchGuideButton = UIButton().then {
-        $0.backgroundColor = .clear
-    }
     
-    let lineBottomView = Separator()
-    
-    // MARK: - Init
+    // MARK: - LifeCycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configUI()
@@ -112,7 +120,7 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     }
     
     private func setupAutoLayout() {
-        addSubviews([progressBar, catchuView])
+        contentView.addSubviews([progressBar, catchuView, catchuImageView])
         catchuView.addSubview(catchuImageView)
         
         progressBar.snp.makeConstraints { make in
@@ -130,5 +138,10 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
             make.centerX.centerY.equalToSuperview()
             make.width.height.equalTo(69)
         }
+    }
+    
+    // MARK: - @objc
+    @objc func touchupGuideButton(_ sender: UIButton) {
+        delegate?.clickToOpenGuidePopup()
     }
 }
