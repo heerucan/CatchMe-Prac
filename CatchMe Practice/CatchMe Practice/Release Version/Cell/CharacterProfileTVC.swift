@@ -16,18 +16,80 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     static let identifier = "CharacterProfileTVC"
     
     // MARK: - Properties
-    let progressBar = ProgressBar().then {
-        $0.backgroundColor = .clear
-    }
+    let progressBar = ProgressBar()
     
     let catchuView = UIView().then {
         $0.layer.cornerRadius = 87 / 2
-        $0.backgroundColor = .systemPink
+        $0.backgroundColor = CDSColor.orangePrimaryBG
     }
     
     let catchuImageView = UIImageView().then {
-        $0.backgroundColor = .orange
+        $0.backgroundColor = .purple
+        $0.layer.cornerRadius = 69 / 2
     }
+    
+    let nameLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 14)
+        $0.text = "커피커피름름커피커피커피커피름름커피커피"
+        $0.numberOfLines = 2
+        $0.lineBreakMode = .byWordWrapping
+    }
+    
+    let editButton = UIButton().then {
+        $0.setImage(CDSIcon.btnProfileEdit, for: .normal)
+    }
+    
+    let lineTopView = Separator()
+    
+    let levelStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 3
+        $0.alignment = .center
+    }
+    
+    let levelNumberLabel = UILabel().then {
+        $0.text = "1"
+    }
+    
+    let levelLabel = UILabel().then {
+        $0.text = "레벨"
+    }
+    
+    let separateLineLeftView = Separator()
+    
+    let activityStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.spacing = 3
+        $0.alignment = .center
+    }
+    
+    let activityNumberLabel = UILabel().then {
+        $0.text = "23"
+    }
+    
+    let activityLabel = UILabel().then {
+        $0.text = "캐칭"
+    }
+    
+    let separateLineRightView = Separator()
+    
+    let catchNumberLabel = UILabel().then {
+        $0.text = "50"
+    }
+
+    let catchLabel = UILabel().then {
+        $0.text = "캐치지수"
+    }
+    
+    let exclamationMarkImageView = UIImageView().then {
+        $0.image = CDSIcon.btnGuide
+    }
+    
+    let catchGuideButton = UIButton().then {
+        $0.backgroundColor = .clear
+    }
+    
+    let lineBottomView = Separator()
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -47,7 +109,6 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     // MARK: - Custom Methods
     private func configUI() {
         backgroundColor = CDSColor.secondaryBG
-        progressBar.frame = self.frame
     }
     
     private func setupAutoLayout() {
@@ -55,7 +116,7 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
         catchuView.addSubview(catchuImageView)
         
         progressBar.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(53)
+            make.top.equalToSuperview().inset(1)
             make.centerX.equalToSuperview()
         }
         

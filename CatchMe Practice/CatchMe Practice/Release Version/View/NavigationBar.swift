@@ -22,7 +22,7 @@ class NavigationBar: UIView {
         $0.font = .systemFont(ofSize: 14)
         $0.numberOfLines = 2
         $0.lineBreakMode = .byWordWrapping
-        $0.text = "커피커피름름커피커피커피커피름름커피커피"
+//        $0.text = "커피커피름름커피커피커피커피름름커피커피"
     }
     
     // MARK: - Init

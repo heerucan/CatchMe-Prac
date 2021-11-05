@@ -17,6 +17,7 @@ class CharacterVC: UIViewController {
     private let naviBar = NavigationBar()
     
     private lazy var mainTV = UITableView().then {
+        $0.separatorStyle = .none
         $0.delegate = self
         $0.dataSource = self
         CharacterProfileTVC.register(target: $0)
@@ -55,7 +56,6 @@ class CharacterVC: UIViewController {
 }
 
 // MARK: - UITableViewDelegate
-
 extension CharacterVC: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -64,11 +64,7 @@ extension CharacterVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 1:
-            let view = UIView()
-            view.backgroundColor = CDSColor.secondaryBG
-            view.setCornerRadius(cornerRadius: 18,
-                                 maskedCorners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner])
-            return view
+            return SectionHeader()
         default:
             return nil
         }
@@ -77,7 +73,7 @@ extension CharacterVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 1:
-            return UITableView.automaticDimension
+            return 27
         default:
             return 0
         }
@@ -93,14 +89,13 @@ extension CharacterVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 375
+            return 325
         }
         return 30
     }
 }
 
 // MARK: - UITableViewDataSource
-
 extension CharacterVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
@@ -116,6 +111,7 @@ extension CharacterVC: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterProfileTVC.className, for: indexPath)
                     as? CharacterProfileTVC else { return UITableViewCell() }
+            cell.selectionStyle = .none
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterPostTVC.className, for: indexPath)
