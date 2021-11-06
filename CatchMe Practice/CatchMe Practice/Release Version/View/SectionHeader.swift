@@ -14,14 +14,17 @@ import Then
 class SectionHeader: UIView {
     
     // MARK: - Properties
+    
     let cornerImageView = UIImageView().then {
         $0.image = UIImage(named: "roundRectangle")
     }
     
-    // MARK: - Init
+    // MARK: - Initalizing
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupAutoLayout()
+        backgroundColor = CDSColor.mainBG
     }
     
     required init?(coder: NSCoder) {
@@ -29,6 +32,7 @@ class SectionHeader: UIView {
     }
     
     // MARK: - Custom Method
+    
     func setupAutoLayout() {
         addSubview(cornerImageView)
         

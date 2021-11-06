@@ -20,6 +20,7 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     static let identifier = "CharacterProfileTVC"
     
     // MARK: - Properties
+    
     weak var delegate: GuideButtonDelegate?
     
     let progressBar = ProgressBar()
@@ -99,7 +100,8 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     }
     
     
-    // MARK: - LifeCycle
+    // MARK: - Initalizing
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configUI()
@@ -115,6 +117,7 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     }
     
     // MARK: - Custom Methods
+    
     private func configUI() {
         backgroundColor = CDSColor.secondaryBG
     }
@@ -141,6 +144,7 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     }
     
     // MARK: - @objc
+    
     @objc func touchupGuideButton(_ sender: UIButton) {
         delegate?.clickToOpenGuidePopup()
     }

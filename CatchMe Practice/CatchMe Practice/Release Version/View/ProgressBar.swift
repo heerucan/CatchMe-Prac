@@ -13,6 +13,8 @@ import Then
 
 class ProgressBar: UIView {
 
+    // MARK: - Initalizing
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
@@ -25,6 +27,8 @@ class ProgressBar: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - drawUI
     
     override func draw(_ rect: CGRect) {
         let viewCenter = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)

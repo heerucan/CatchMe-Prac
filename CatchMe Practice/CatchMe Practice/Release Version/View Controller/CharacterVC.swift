@@ -14,9 +14,11 @@ import Then
 class CharacterVC: UIViewController, GuideButtonDelegate {
     
     // MARK: - Properties
+    
     private let naviBar = NavigationBar()
     
     private lazy var mainTV = UITableView().then {
+        $0.backgroundColor = CDSColor.secondaryBG
         $0.separatorStyle = .none
         $0.delegate = self
         $0.dataSource = self
@@ -32,6 +34,7 @@ class CharacterVC: UIViewController, GuideButtonDelegate {
     }
     
     // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -39,6 +42,7 @@ class CharacterVC: UIViewController, GuideButtonDelegate {
     }
     
     // MARK: - Custom Method
+    
     private func configUI() {
         view.backgroundColor = CDSColor.mainBG
         navigationController?.navigationBar.isHidden = true
@@ -64,6 +68,7 @@ class CharacterVC: UIViewController, GuideButtonDelegate {
 }
 
 // MARK: - UITableViewDelegate
+
 extension CharacterVC: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -104,6 +109,7 @@ extension CharacterVC: UITableViewDelegate {
 }
 
 // MARK: - UITableViewDataSource
+
 extension CharacterVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
@@ -125,6 +131,7 @@ extension CharacterVC: UITableViewDataSource {
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterPostTVC.className, for: indexPath)
                     as? CharacterPostTVC else { return UITableViewCell() }
+            cell.backgroundColor = CDSColor.mainBG
             return cell
         }
     }
