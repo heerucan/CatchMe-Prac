@@ -106,6 +106,20 @@ extension CharacterVC: UITableViewDelegate {
         }
         return 30
     }
+    
+    // MARK: - Navigation Animation
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 330 {
+            UIView.animate(withDuration: 0.5, delay: .nan, options: .curveEaseIn) {
+                self.naviBar.nameView.alpha = 1
+            }
+        } else {
+            UIView.animate(withDuration: 0.1, delay: .nan, options: .curveEaseIn) {
+                self.naviBar.nameView.alpha = 0
+            }
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -131,7 +145,6 @@ extension CharacterVC: UITableViewDataSource {
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterPostTVC.className, for: indexPath)
                     as? CharacterPostTVC else { return UITableViewCell() }
-            cell.backgroundColor = CDSColor.mainBG
             return cell
         }
     }

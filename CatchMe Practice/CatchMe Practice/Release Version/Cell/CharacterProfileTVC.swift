@@ -11,6 +11,9 @@ import CDSKit
 import SnapKit
 import Then
 
+
+// MARK: - Protocol
+
 protocol GuideButtonDelegate: AnyObject {
     func clickToOpenGuidePopup()
 }

@@ -18,7 +18,7 @@ class NavigationBar: UIView {
         $0.setImage(CDSIcon.btnBack, for: .normal)
     }
     
-    private lazy var nameView = UIView().then {
+    public lazy var nameView = UIView().then {
         $0.addSubview(nameLabel)
     }
     
