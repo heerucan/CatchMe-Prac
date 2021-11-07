@@ -86,7 +86,7 @@ extension CharacterVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 1:
-            return 27
+            return 22
         default:
             return 0
         }
@@ -102,7 +102,7 @@ extension CharacterVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 325
+            return 330
         }
         return 30
     }
@@ -136,3 +136,5 @@ extension CharacterVC: UITableViewDataSource {
         }
     }
 }
+
+
