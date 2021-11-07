@@ -35,7 +35,7 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
         $0.layer.cornerRadius = 69 / 2
     }
     
-    private let nameLabel = CDSLabel(style: .catchu1).then {
+    public let nameLabel = CDSLabel(style: .catchu1).then {
         $0.text = "커피커피름름커피커피커피커피름름커피커피" /// 나중에 삭제할 예정
         $0.numberOfLines = 2
         $0.addCharacterSpacing(kernValue: -0.6, paragraphValue: 0)

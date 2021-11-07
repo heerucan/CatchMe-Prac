@@ -14,15 +14,18 @@ import Then
 class NavigationBar: UIView {
 
     // MARK: - Properties
-    let backButton = UIButton().then {
+    private lazy var backButton = UIButton().then {
         $0.setImage(CDSIcon.btnBack, for: .normal)
     }
     
-    let nameLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 14)
+    private lazy var nameView = UIView().then {
+        $0.addSubview(nameLabel)
+    }
+    
+    private let nameLabel = CDSLabel(style: .catchu3).then {
         $0.numberOfLines = 2
-        $0.lineBreakMode = .byWordWrapping
-//        $0.text = "커피커피름름커피커피커피커피름름커피커피"
+        $0.text = "커피커피름름커피커피커피커피름름커피커피"
+        $0.addCharacterSpacing(kernValue: -0.6, paragraphValue: 0)
     }
     
     // MARK: - Init
@@ -39,20 +42,27 @@ class NavigationBar: UIView {
     // MARK: - Custom Methods
     private func configUI() {
         backgroundColor = CDSColor.secondaryBG
+        nameLabel.textAlignment = .center
     }
     
     private func setupAutoLayout() {
-        addSubviews([backButton, nameLabel])
+        addSubviews([backButton, nameView])
         
         backButton.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(55)
             make.leading.equalToSuperview().inset(3)
         }
         
-        nameLabel.snp.makeConstraints { make in
+        nameView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(64)
             make.centerX.equalToSuperview()
             make.width.equalTo(123)
+            make.height.lessThanOrEqualTo(32)
+        }
+        
+        nameLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.centerY.equalTo(nameView.snp.centerY)
         }
     }
 }
