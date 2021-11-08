@@ -20,16 +20,23 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     weak var guideButtonDelegate: GuideButtonProtocol?
     weak var sendNameDelegate: SendNameProtocol?
     
+    private let backView = UIView().then {
+        $0.backgroundColor = CDSColor.secondaryBG
+        $0.setCornerRadius(cornerRadius: 20,
+                           maskedCorners: [.layerMinXMaxYCorner,
+                                           .layerMaxXMaxYCorner])
+    }
+    
     let progressBar = ProgressBar()
     
     private let catchuView = UIView().then {
         $0.layer.cornerRadius = 87 / 2
-        $0.backgroundColor = CDSColor.orangePrimaryBG /// 나중에 삭제할 예정
+        $0.selectedCatchuBG(color: 3) /// 나중에 서버 관련 level 같은 값으로 대체
     }
     
-    private let catchuImageView = UIImageView().then {
-        $0.backgroundColor = .purple /// 나중에 삭제할 예정
+    private lazy var catchuImageView = UIImageView().then {
         $0.layer.cornerRadius = 69 / 2
+        $0.selectedCatchu(color: 3, phase: 3) /// 나중에 서버 관련 level 같은 값으로 대체
     }
     
     public let nameLabel = CDSLabel(style: .catchu1).then {
@@ -41,7 +48,7 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     private let nameView = UIView()
     
     private lazy var editButton = UIButton().then {
-//        $0.setImage(CDSIcon.btnProfileEdit, for: .normal) /// 여기 에셋 나중에 갈아끼워야 함
+//        $0.setImage(CDSIcon.btnProfileEdit, for: .normal)
         $0.backgroundColor = .brown /// 나중에 삭제할 예정
     }
     
@@ -65,10 +72,12 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     
     private let dateLabel = CDSLabel(style: .caption0).then {
         $0.text = "2021.05.01" /// 나중에 삭제할 예정
+        $0.textColor = CDSColor.textQuaternary
     }
     
     private let untilLabel = CDSLabel(style: .caption1).then {
         $0.text = "부터"
+        $0.textColor = CDSColor.textQuaternary
     }
     
     private lazy var writeButton = CDSPlainButton(type: .normal, size: .small).then {
@@ -141,7 +150,6 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     // MARK: - Custom Methods
     
     private func configUI() {
-        backgroundColor = CDSColor.secondaryBG
         nameLabel.textAlignment = .center
         
         [lineTopView, lineBottomView,
@@ -152,28 +160,29 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
         [lineRightView, lineLeftView].forEach {
             $0.layer.cornerRadius = 1
         }
-        
-        [dateLabel, untilLabel].forEach {
-            $0.textColor = CDSColor.textQuaternary
-        }
-        
+
         [levelLabel, totalLabel, valueLabel].forEach {
             $0.textColor = CDSColor.textTertiary
         }
     }
     
     private func setupAutoLayout() {
-        contentView.addSubviews([progressBar, catchuView,
-                                 nameView, editButton,
-                                 lockStackView, dateStackView,
-                                 writeButton,
-                                 lineTopView, lineBottomView,
-                                 lineLeftView,lineRightView,
-                                 levelView, totalView, valueView])
+        contentView.addSubview(backView)
+        backView.addSubviews([progressBar, catchuView,
+                              nameView, editButton,
+                              lockStackView, dateStackView,
+                              writeButton,
+                              lineTopView, lineBottomView,
+                              lineLeftView,lineRightView,
+                              levelView, totalView, valueView])
         catchuView.addSubview(catchuImageView)
         lockStackView.addArrangedSubview(lockImageView)
         lockStackView.addArrangedSubview(dateStackView)
         nameView.addSubview(nameLabel)
+        
+        backView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         progressBar.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(1)
@@ -224,7 +233,7 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
         }
         
         lineBottomView.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(3)
+            make.bottom.equalToSuperview().inset(27)
         }
         
         [lineTopView, lineBottomView].forEach {

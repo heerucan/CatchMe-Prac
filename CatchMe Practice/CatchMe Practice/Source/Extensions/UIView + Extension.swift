@@ -7,7 +7,9 @@
 
 import UIKit
 
-extension UIView {
+import CDSKit
+
+extension UIView: CDSCatchuSelector {
     
     func addSubviews(_ views: [UIView]) {
         views.forEach { self.addSubview($0) }

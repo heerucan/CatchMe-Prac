@@ -14,10 +14,14 @@ import Then
 class CharacterVC: UIViewController, GuideButtonProtocol, SendNameProtocol {
     
     // MARK: - Properties
-        
+            
     private let naviBar = NavigationBar()
     
-    private lazy var mainTV = UITableView().then {
+    private let bottomOfNaviBar = UIImageView().then {
+        $0.image = UIImage(named: "roundRectangle")
+    }
+    
+    private lazy var mainTV = UITableView(frame: .zero, style: .grouped).then {
         $0.backgroundColor = CDSColor.secondaryBG
         $0.separatorStyle = .none
         $0.delegate = self
@@ -49,11 +53,16 @@ class CharacterVC: UIViewController, GuideButtonProtocol, SendNameProtocol {
     }
     
     private func setupAutoLayout() {
-        view.addSubviews([mainTV, naviBar])
+        view.addSubviews([mainTV, bottomOfNaviBar, naviBar])
         
         naviBar.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(94)
+        }
+        
+        bottomOfNaviBar.snp.makeConstraints { make in
+            make.top.equalTo(naviBar.snp.bottom).offset(-2)
+            make.leading.trailing.equalToSuperview()
         }
         
         mainTV.snp.makeConstraints { make in
@@ -81,7 +90,7 @@ extension CharacterVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 1:
-            return SectionHeader()
+            return DateHeader()
         default:
             return nil
         }
@@ -90,7 +99,7 @@ extension CharacterVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 1:
-            return 22
+            return 54
         default:
             return 0
         }
@@ -105,10 +114,12 @@ extension CharacterVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 330
+        switch indexPath.section {
+        case 0:
+            return 352
+        default:
+            return UITableView.automaticDimension
         }
-        return 30
     }
     
     // MARK: - Navigation Animation
@@ -117,10 +128,12 @@ extension CharacterVC: UITableViewDelegate {
         if scrollView.contentOffset.y > 330 {
             UIView.animate(withDuration: 0.5, delay: .nan, options: .curveEaseIn) {
                 self.naviBar.nameView.alpha = 1
+                self.bottomOfNaviBar.isHidden = false
             }
         } else {
             UIView.animate(withDuration: 0.1, delay: .nan, options: .curveEaseIn) {
                 self.naviBar.nameView.alpha = 0
+                self.bottomOfNaviBar.isHidden = true
             }
         }
     }
