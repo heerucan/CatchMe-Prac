@@ -27,6 +27,8 @@
 		5B085001268B1F19008F40B2 /* ActivityTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B085000268B1F19008F40B2 /* ActivityTVC.swift */; };
 		5B085004268B2E0E008F40B2 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B085003268B2E0E008F40B2 /* CustomNavigationBar.swift */; };
 		5B217BD4273669ED006A0A3E /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B217BD3273669ED006A0A3E /* UILabel + Extension.swift */; };
+		5B217BDD2738D176006A0A3E /* GuideButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B217BDC2738D176006A0A3E /* GuideButtonProtocol.swift */; };
+		5B217BDF2738D4AA006A0A3E /* SendNameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B217BDE2738D4AA006A0A3E /* SendNameDelegate.swift */; };
 		5BAE4F732733DA1200E2F69A /* CharacterPostTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE4F722733DA1200E2F69A /* CharacterPostTVC.swift */; };
 		5BAE4F76273425E200E2F69A /* CDSKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5BAE4F75273425E200E2F69A /* CDSKit */; };
 		5BAE4F7C2734F20900E2F69A /* CharacterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAE4F7B2734F20900E2F69A /* CharacterHeaderView.swift */; };
@@ -59,6 +61,8 @@
 		5B085000268B1F19008F40B2 /* ActivityTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTVC.swift; sourceTree = "<group>"; };
 		5B085003268B2E0E008F40B2 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		5B217BD3273669ED006A0A3E /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		5B217BDC2738D176006A0A3E /* GuideButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideButtonProtocol.swift; sourceTree = "<group>"; };
+		5B217BDE2738D4AA006A0A3E /* SendNameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendNameDelegate.swift; sourceTree = "<group>"; };
 		5BAE4F722733DA1200E2F69A /* CharacterPostTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPostTVC.swift; sourceTree = "<group>"; };
 		5BAE4F7B2734F20900E2F69A /* CharacterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterHeaderView.swift; sourceTree = "<group>"; };
 		5BAE4F7D2734F70B00E2F69A /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -200,9 +204,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5B217BDB2738D161006A0A3E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5B217BDC2738D176006A0A3E /* GuideButtonProtocol.swift */,
+				5B217BDE2738D4AA006A0A3E /* SendNameDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		5BAE4F772734F1BD00E2F69A /* Release Version */ = {
 			isa = PBXGroup;
 			children = (
+				5B217BDB2738D161006A0A3E /* Protocol */,
 				5BAE4F7A2734F1DA00E2F69A /* View */,
 				5BAE4F792734F1D100E2F69A /* View Controller */,
 				5BAE4F782734F1CD00E2F69A /* Cell */,
@@ -327,12 +341,14 @@
 			files = (
 				5B084FB3268ADF9A008F40B2 /* ViewController.swift in Sources */,
 				5BAE4F80273534ED00E2F69A /* ProgressBar.swift in Sources */,
+				5B217BDF2738D4AA006A0A3E /* SendNameDelegate.swift in Sources */,
 				5B084FD4268AE492008F40B2 /* UIColor + Extension.swift in Sources */,
 				5BAE4F82273542C300E2F69A /* CharacterProfileTVC.swift in Sources */,
 				5BAE4F892735861000E2F69A /* SectionHeader.swift in Sources */,
 				5B084FF9268B13AC008F40B2 /* ReportNumLabel.swift in Sources */,
 				5B084FF5268B000B008F40B2 /* UIDevice + ScreenSize.swift in Sources */,
 				5B084FAF268ADF9A008F40B2 /* AppDelegate.swift in Sources */,
+				5B217BDD2738D176006A0A3E /* GuideButtonProtocol.swift in Sources */,
 				5B084FED268AF9A8008F40B2 /* ReportLabel.swift in Sources */,
 				5B085004268B2E0E008F40B2 /* CustomNavigationBar.swift in Sources */,
 				5B085001268B1F19008F40B2 /* ActivityTVC.swift in Sources */,

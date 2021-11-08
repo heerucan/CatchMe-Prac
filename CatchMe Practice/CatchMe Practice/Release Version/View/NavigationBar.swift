@@ -22,7 +22,7 @@ class NavigationBar: UIView {
         $0.addSubview(nameLabel)
     }
     
-    private let nameLabel = CDSLabel(style: .catchu3).then {
+    public let nameLabel = CDSLabel(style: .catchu3).then {
         $0.numberOfLines = 2
         $0.text = "커피커피름름커피커피커피커피름름커피커피"
         $0.addCharacterSpacing(kernValue: -0.6, paragraphValue: 0)

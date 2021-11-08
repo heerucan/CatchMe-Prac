@@ -11,20 +11,14 @@ import CDSKit
 import SnapKit
 import Then
 
-
-// MARK: - Protocol
-
-protocol GuideButtonDelegate: AnyObject {
-    func clickToOpenGuidePopup()
-}
-
 class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     
     static let identifier = "CharacterProfileTVC"
     
     // MARK: - Properties
     
-    weak var delegate: GuideButtonDelegate?
+    weak var guideButtonDelegate: GuideButtonProtocol?
+    weak var sendNameDelegate: SendNameProtocol?
     
     let progressBar = ProgressBar()
     
@@ -133,6 +127,7 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configUI()
         setupAutoLayout()
+        sendNameData()
     }
     
     required init?(coder: NSCoder) {
@@ -316,9 +311,15 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
         }
     }
     
+    func sendNameData() {
+        if let name = nameLabel.text {
+            sendNameDelegate?.nameData(name: name)
+        }
+    }
+    
     // MARK: - @objc
     
     @objc func touchupGuideButton(_ sender: UIButton) {
-        delegate?.clickToOpenGuidePopup()
+        guideButtonDelegate?.clickToOpenGuidePopup()
     }
 }

@@ -11,10 +11,10 @@ import CDSKit
 import SnapKit
 import Then
 
-class CharacterVC: UIViewController, GuideButtonDelegate {
+class CharacterVC: UIViewController, GuideButtonProtocol, SendNameProtocol {
     
     // MARK: - Properties
-    
+        
     private let naviBar = NavigationBar()
     
     private lazy var mainTV = UITableView().then {
@@ -64,6 +64,10 @@ class CharacterVC: UIViewController, GuideButtonDelegate {
     
     internal func clickToOpenGuidePopup() {
         print("캐치지수 팝업 보여주기")
+    }
+    
+    func nameData(name: String) {
+        self.naviBar.nameLabel.text = name
     }
 }
 
@@ -140,7 +144,8 @@ extension CharacterVC: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterProfileTVC.className, for: indexPath)
                     as? CharacterProfileTVC else { return UITableViewCell() }
             cell.selectionStyle = .none
-            cell.delegate = self
+            cell.guideButtonDelegate = self
+            cell.sendNameDelegate = self
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterPostTVC.className, for: indexPath)
