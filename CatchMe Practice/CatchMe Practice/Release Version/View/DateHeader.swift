@@ -22,7 +22,7 @@ class DateHeader: UIView {
     }
     
     private let dateLabel = CDSLabel(style: .button1).then {
-        $0.text = "2021년 12월"
+        $0.text = "2021년 12월" /// 나중에 삭제할 예정
         $0.addCharacterSpacing(kernValue: -0.6, paragraphValue: 0)
     }
         

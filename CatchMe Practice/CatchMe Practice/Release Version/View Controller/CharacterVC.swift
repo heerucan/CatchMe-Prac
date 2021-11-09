@@ -147,7 +147,7 @@ extension CharacterVC: UITableViewDataSource {
         case 0:
             return 1
         default:
-            return 50
+            return 3
         }
     }
     
