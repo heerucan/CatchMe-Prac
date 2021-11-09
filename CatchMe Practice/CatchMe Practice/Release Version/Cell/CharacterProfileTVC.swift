@@ -48,8 +48,8 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     private let nameView = UIView()
     
     private lazy var editButton = UIButton().then {
-//        $0.setImage(CDSIcon.btnProfileEdit, for: .normal)
-        $0.backgroundColor = .brown /// 나중에 삭제할 예정
+        $0.setImage(CDSIcon.btnProfileEdit, for: .normal)
+        $0.addTarget(self, action: #selector(touchupEditButton(_:)), for: .touchUpInside)
     }
     
     private let lockStackView = UIStackView().then {
@@ -82,8 +82,9 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     
     private lazy var writeButton = CDSPlainButton(type: .normal, size: .small).then {
         $0.text = "캐칭"
+        $0.addTarget(self, action: #selector(touchupWriteButton(_:)), for: .touchUpInside)
     }
-
+    
     private let lineTopView = UIView()
     private let lineLeftView = UIView()
     private let lineBottomView = UIView()
@@ -120,7 +121,7 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     private let valueNumLabel = CDSLabel(style: .body1).then {
         $0.text = "50"
     }
-
+    
     private let valueLabel = CDSLabel(style: .body6).then {
         $0.text = "캐치지수"
     }
@@ -160,7 +161,7 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
         [lineRightView, lineLeftView].forEach {
             $0.layer.cornerRadius = 1
         }
-
+        
         [levelLabel, totalLabel, valueLabel].forEach {
             $0.textColor = CDSColor.textTertiary
         }
@@ -327,6 +328,14 @@ class CharacterProfileTVC: UITableViewCell, UITableViewRegisterable {
     }
     
     // MARK: - @objc
+    
+    @objc func touchupEditButton(_ sender: UIButton) {
+        print("이름편집버튼")
+    }
+    
+    @objc func touchupWriteButton(_ sender: UIButton) {
+        print("글작성버튼")
+    }
     
     @objc func touchupGuideButton(_ sender: UIButton) {
         guideButtonDelegate?.clickToOpenGuidePopup()

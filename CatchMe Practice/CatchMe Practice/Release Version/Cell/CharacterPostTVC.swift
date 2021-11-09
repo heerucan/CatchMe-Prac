@@ -65,7 +65,7 @@ class CharacterPostTVC: UITableViewCell, UITableViewRegisterable {
     }
     
     private let separator = UIView().then {
-        $0.backgroundColor = CDSColor.mainSeparator
+        $0.backgroundColor = CDSColor.secondarySeparator
     }
     
     
@@ -144,12 +144,10 @@ class CharacterPostTVC: UITableViewCell, UITableViewRegisterable {
             make.bottom.equalToSuperview().inset(6)
             make.height.equalTo(1.5)
         }
-        
     }
     
     // MARK: - @objc
     @objc func touchupMoreButton(_ sender: UIButton) {
         print("더보기버튼")
     }
-
 }

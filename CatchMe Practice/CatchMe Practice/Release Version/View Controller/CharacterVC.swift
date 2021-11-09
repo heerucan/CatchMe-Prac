@@ -24,6 +24,7 @@ class CharacterVC: UIViewController, GuideButtonProtocol, SendNameProtocol {
     private lazy var mainTV = UITableView(frame: .zero, style: .grouped).then {
         $0.backgroundColor = CDSColor.secondaryBG
         $0.separatorStyle = .none
+        $0.allowsSelection = false
         $0.delegate = self
         $0.dataSource = self
         CharacterProfileTVC.register(target: $0)
@@ -35,6 +36,7 @@ class CharacterVC: UIViewController, GuideButtonProtocol, SendNameProtocol {
     
     private let guideImageView = UIImageView().then {
         $0.image = UIImage(named: "imgCatchGuide")
+        $0.isHidden = true
     }
     
     // MARK: - Lifecycle
@@ -73,6 +75,7 @@ class CharacterVC: UIViewController, GuideButtonProtocol, SendNameProtocol {
     
     internal func clickToOpenGuidePopup() {
         print("캐치지수 팝업 보여주기")
+        guideImageView.isHidden = false
     }
     
     func nameData(name: String) {
